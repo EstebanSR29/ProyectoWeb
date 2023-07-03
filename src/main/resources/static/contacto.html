@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CarShop</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="nav container">
+                <i class='bx bx-menu-alt-right' id="menu-icon"></i>
+                <a href="index.html" class="logo">Car <span>Shop</span></a>
+
+                <ul class="navbar">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="autos.html" >Autos</a></li>
+                    <li><a href="accesorios.html" >Accesorios</a></li>
+                    <li><a href="contacto.html" class="activo">Contacto</a></li>
+                   <li><a href="citas.html">Citas</a></li>
+                   <li><a href="login.html">Iniciar Sesion</a></li>
+                </ul>
+
+                <i class='bx bx-search-alt-2' id="buscar-icon" onclick="toggleSearchBox()"></i>
+
+                <div class="search-box container">
+                    <input type="Buscar" name="" id="" placeholder="Buscar autos">
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <div class="catalogo" id="catalogo">
+                <h1>Redes Sociales</h1>
+            </div>
+            <div class="catEstilo">
+                <h2>FACEBOOK</h2><i class='bx bxl-facebook-circle' ></i><br>
+                <h3><a href="https://facebook.com/" target="_blank">Facebook.com/CarShop</a></h3><br>
+                <h2>INSTAGRAM</h2><i class='bx bxl-instagram'></i><br>
+                <h3><a href="https://instagram.com/" target="_blank">Instagrama.com/CarShop</a></h3><br>
+                <h2>TWITTER</h2><i class='bx bxl-twitter' ></i><br>
+                <h3><a href="https://twitter.com/" target="_blank">Twitter.com/CarShop</a></h3><br>
+                <h2>TIK TOK</h2><i class='bx bxl-tiktok' ></i><br>
+                <h3><a href="https://tiktok.com/" target="_blank">TikTok.com/CarShop</a></h3><br>
+                <h2>WhatsApp</h2><i class='bx bxl-whatsapp' ></i><br>
+                <h3><a href="https://whatsapp.com/" target="_blank">WhatsApp.com/CarShop</a></h3><br>
+
+            </div>
+        </section>
+
+        <script>
+            function toggleSearchBox() {
+                var searchBox = document.querySelector('.search-box');
+                searchBox.classList.toggle('activo');
+            }
+        </script>
+        <footer class="footer">CarShop &COPY; 2023 - Grupo 10</footer>
+</body>
+</html>

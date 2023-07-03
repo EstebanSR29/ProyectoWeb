@@ -13,12 +13,10 @@
 }
 
 :root{
-    --main-color: #800080;
+    --main-color: #803080;
     --text-color: #000000;
     --bg-color: #ffffff;
 }
-
-
 
 body {
     color: var(--text-color);
@@ -55,10 +53,11 @@ header{
     display: none;
 }
 
-.logo{
-    font-size: 100px;
-    font-weight: 700;
-    color: var(--text-color);
+.logo {
+  font-size: 100px;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-left: -200px;
 }
 
 .logo span {
@@ -72,7 +71,7 @@ header{
 
 .navbar a {
     color: var(--text-color);
-    font-size: 1rem;
+    font-size: 35px;
     text-transform: uppercase;
     font-weight: 500;
 }
@@ -86,6 +85,7 @@ header{
 #buscar-icon {
     font-size: 24px;
     cursor: pointer;
+    margin-right: -200px;
 }
 
 .search-box {
@@ -146,7 +146,7 @@ header{
     height: 30px;
 }
 
-.catAutos {
+.catEstilo {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -158,18 +158,96 @@ header{
     border-radius: 10px;
 }
 
-.catAutos img {
+.catEstilo img {
     width: 500px;
     height: 350px;
     object-fit: cover;
     margin-bottom: 10px;
 }
 
-.catAutos h2, .catAutos p {
+.catEstilo h2, .catEstilo p {
     text-align: center;
-    font-size: 30px;
+    font-size: 50px;
 }
 
 .hidden-controls::-webkit-media-controls-panel {
     display: none !important;
+}
+.cita {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 500px;
+    margin: 200px auto;
+    padding: 20px;
+    background-color: orange;
+    border-radius: 10px;
+    font-size: 30px;
+}
+
+.cita input[type="text"],
+.cita input[type="email"],
+.cita textarea {
+    font-family: arial,sans-serif;
+    font-weight: bold;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.cita input[type="submit"] {
+    background-color: var(--main-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 25px;
+    margin: 10px;
+}
+
+.cita input[type="submit"]:hover {
+    background-color: #6A0DAD;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 500px;
+    margin: 200px auto;
+    padding: 20px;
+    background-color: orange;
+    border-radius: 10px;
+    font-size: 30px;
+}
+
+.login input[type="text"],
+.login input[type="password"] {
+    font-family: arial,sans-serif;
+    font-weight: bold;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.login input[type="submit"] {
+    background-color: var(--main-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 25px;
+    margin: 10px;
+}
+
+.login input[type="submit"]:hover {
+    background-color: #6A0DAD;
 }
