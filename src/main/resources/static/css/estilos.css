@@ -5,7 +5,7 @@
     font-family: 'Bebas Neue', sans-serif;
     margin: 0;
     padding: 0;
-    scroll-padding-top: 1rem;
+    scroll-padding-top: 16px;
     scroll-behavior: smooth;
     list-style: none;
     text-decoration: none;
@@ -18,9 +18,7 @@
     --bg-color: #ffffff;
 }
 
-img{
-    width: 100%;
-}
+
 
 body {
     color: var(--text-color);
@@ -39,6 +37,8 @@ header{
     top: 0;
     left: 0;
     z-index: 100;
+    background-color: orange;
+    height: 150px;
 }
 
 .nav{
@@ -49,14 +49,14 @@ header{
 }
 
 #menu-icon{
-    font-size: 24px;
+    font-size: 200px;
     cursor: pointer;
     color: var(--text-color);
     display: none;
 }
 
 .logo{
-    font-size: 1.2rem;
+    font-size: 100px;
     font-weight: 700;
     color: var(--text-color);
 }
@@ -67,7 +67,7 @@ header{
 
 .navbar {
     display: flex;
-    column-gap: 2rem;
+    column-gap: 48px;
 }
 
 .navbar a {
@@ -90,7 +90,7 @@ header{
 
 .search-box {
     position: absolute;
-    top: 110%;
+    top: 85%;
     right: 0;
     left: 0;
     background: var(--bg-color);
@@ -98,6 +98,7 @@ header{
     border: 1px solid var(--main-color);
     border-radius: 0.5rem;
     display: none;
+    z-index: 9999;
 }
 
 .search-box.activo{
@@ -110,5 +111,65 @@ header{
     border: none;
     outline: none;
     background: transparent;
-    font-size: 1rem;
+    font-size: 16px;
+}
+
+.footer {
+    background-color: black;
+    height: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+.heading {
+    text-align: center;
+}
+
+.heading span {
+    font-weight: 500;
+    color: var(--main-color);
+}
+
+.catalogo {
+    align-items: center;
+    text-align: center;
+    display: block;
+    width: 100%;
+    position: fixed;
+    top: 150px;
+    left: 0;
+    background-color: white;
+    height: 30px;
+}
+
+.catAutos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 1000px;
+    margin: 200px auto;
+    padding: 20px;
+    background-color: orange;
+    border-radius: 10px;
+}
+
+.catAutos img {
+    width: 500px;
+    height: 350px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.catAutos h2, .catAutos p {
+    text-align: center;
+    font-size: 30px;
+}
+
+.hidden-controls::-webkit-media-controls-panel {
+    display: none !important;
 }

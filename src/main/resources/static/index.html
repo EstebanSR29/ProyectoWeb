@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CarShop</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="nav container">
+                <i class='bx bx-menu-alt-right' id="menu-icon"></i>
+                <a href="index.html" class="logo">Car <span>Shop</span></a>
+
+                <ul class="navbar">
+                    <li><a href="index.html" class="activo">Inicio</a></li>
+                    <li><a href="autos.html">Autos</a></li>
+                    <li><a href="#accesorios">Accesorios</a></li>
+                    <li><a href="#Contacto">Contacto</a></li>
+                    <li><a href="#Citas">Citas</a></li>
+                    <li><a href="#Registro">Iniciar Sesion</a></li>
+                </ul>
+
+                <i class='bx bx-search-alt-2' id="buscar-icon" onclick="toggleSearchBox()"></i>
+
+                <div class="search-box container">
+                    <input type="Buscar" name="" id="" placeholder="Buscar autos">
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <h1 class="catalogo">Ponte sobre ruedas con nosotros!</h1>
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <video width="1220" height="650" controls autoplay muted loop onplay="this.controls=false" class="hidden-controls">
+                    <source src="imagenes/video.mp4" type="video/mp4">
+                    Your browser does not support the <code>video</code> tag.
+                </video>
+            </div>
+        </section>
+
+        <script>
+            function toggleSearchBox() {
+                var searchBox = document.querySelector('.search-box');
+                searchBox.classList.toggle('activo');
+            }
+        </script>
+        <footer class="footer">AutosMcQueen &COPY; 2023 - Grupo 10</footer>
+    </body>
+</html>
