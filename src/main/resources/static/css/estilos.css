@@ -13,12 +13,10 @@
 }
 
 :root{
-    --main-color: #800080;
+    --main-color: #803080;
     --text-color: #000000;
     --bg-color: #ffffff;
 }
-
-
 
 body {
     color: var(--text-color);
@@ -55,10 +53,11 @@ header{
     display: none;
 }
 
-.logo{
-    font-size: 100px;
-    font-weight: 700;
-    color: var(--text-color);
+.logo {
+  font-size: 100px;
+  font-weight: 700;
+  color: var(--text-color);
+  margin-left: -200px;
 }
 
 .logo span {
@@ -72,7 +71,7 @@ header{
 
 .navbar a {
     color: var(--text-color);
-    font-size: 1rem;
+    font-size: 35px;
     text-transform: uppercase;
     font-weight: 500;
 }
@@ -86,6 +85,7 @@ header{
 #buscar-icon {
     font-size: 24px;
     cursor: pointer;
+    margin-right: -200px;
 }
 
 .search-box {
@@ -167,7 +167,7 @@ header{
 
 .catEstilo h2, .catEstilo p {
     text-align: center;
-    font-size: 30px;
+    font-size: 50px;
 }
 
 .hidden-controls::-webkit-media-controls-panel {
@@ -183,6 +183,7 @@ header{
     padding: 20px;
     background-color: orange;
     border-radius: 10px;
+    font-size: 30px;
 }
 
 .cita input[type="text"],
@@ -204,7 +205,7 @@ header{
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 25px;
     margin: 10px;
 }
 
@@ -222,6 +223,7 @@ header{
     padding: 20px;
     background-color: orange;
     border-radius: 10px;
+    font-size: 30px;
 }
 
 .login input[type="text"],
@@ -242,7 +244,7 @@ header{
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 25px;
     margin: 10px;
 }
 
