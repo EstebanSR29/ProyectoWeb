@@ -2,6 +2,7 @@ package com.ProyectoWeb.controller;
 
 import com.ProyectoWeb.domain.Auto;
 import com.ProyectoWeb.service.AutoService;
+import com.ProyectoWeb.service.impl.FirebaseStorageServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,7 +42,7 @@ public class AutoController {
             @RequestParam("imagenFile") MultipartFile imagenFile) {
         if (!imagenFile.isEmpty()) {
             autoService.save(auto);
-            auto.setRutaImagen(
+            auto.setImagen(
             firebaseStorageService.cargaImagen(
                     imagenFile,
                     "auto",
