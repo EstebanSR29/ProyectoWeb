@@ -1,5 +1,8 @@
 package com.ProyectoWeb.dao;
 
-public interface AutoDao {
+import com.ProyectoWeb.domain.Auto;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AutoDao extends JpaRepository <Auto,Long> {
     
 }
