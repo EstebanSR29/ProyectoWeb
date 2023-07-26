@@ -16,7 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Slf4j
 @RequestMapping("/auto")
 public class AutoController {
-   /* 
+   
     @Autowired
     private AutoService autoService;
 
@@ -62,5 +62,5 @@ public class AutoController {
         auto = autoService.getAuto(auto);
         model.addAttribute("auto", auto);
         return "/auto/modifica";
-    }*/
+    }
 }
