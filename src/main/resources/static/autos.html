@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head>
         <title>CarShop</title>
         <meta charset="UTF-8">
@@ -62,17 +64,82 @@
                 <p>Precio:$40.000</p><br>
                 <p>------------------------------------------------------------------------</p>
 
+            </div>           
+        </section>
+        
+<!-- 1 Sección para crear el boton de agregar... llamará a una ventana modal-->
+        <section th:fragment="botonesAgregar" class="py-4 mb-4 bg-light">
+            <div class="container" sec:authorize="hasRole('ROLE_ADMIN')">
+                <div class="row">
+                    <div class="col-md-3">
+                        <button 
+                            type="button" 
+                            class="btn btn-primary btn-block" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#agregarAuto">
+                            <i class="fas fa-plus"></i> agregar auto
+                        </button>
+                    </div>
+                </div>
             </div>
         </section>
 
+        <!-- 2 Fragmento para agregar auto, es la ventana modal -->
+        <section th:fragment="agregarAuto">
+            <div id="agregarAuto" 
+                 class="modal fade" 
+                 tabindex="-1" 
+                 aria-labelledby="exampleModalLabel" 
+                 aria-hidden="true">
+                <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                        <div class="modal-header bg-info text-white">
+                            <h5 class="modal-title">agregar auto</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div> 
+                        <form th:action="@{/auto/guardar}" th:object="${auto}"
+                              method="POST" class="was-validated" enctype="multipart/form-data">
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="descripcion">modelo</label>
+                                    <input type="text" class="form-control" name="modelo" required="true"/>
+                                </div>
+                                 <div class="mb-3">
+                                    <label for="descripcion">marca</label>
+                                    <input type="text" class="form-control" name="marca" required="true"/>
+                                </div>
+                                 <div class="mb-3">
+                                    <label for="descripcion">precio</label>
+                                    <input type="text" class="form-control" name="precio" required="true"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="activo">activo</label>
+                                    <input class="form-check-input" type="checkbox" name="activo" id="activo"/>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="imagen">imagen</label>
+                                    <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);"/>
+                                    <img id="blah" src="#" alt="your image" height="200"/>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-primary" type="submit">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <script>
             function toggleSearchBox() {
                 var searchBox = document.querySelector('.search-box');
                 searchBox.classList.toggle('activo');
             }
         </script>
+        <br>
+        <br>
+        <br>
         <footer class="footer">CarShop &COPY; 2023 - Grupo 10</footer>
 </body>
 </html>
-
-<!-- comment -->
