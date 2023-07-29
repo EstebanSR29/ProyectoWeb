@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head>
         <title>CarShop</title>
         <meta charset="UTF-8">
@@ -9,6 +11,7 @@
         <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../static/css/estilos.css" type="text/css"/>
     </head>
     <body>
         <header>
@@ -19,7 +22,7 @@
                 <ul class="navbar">
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="autos.html" class="activo">Autos</a></li>
-                    <li><a href="accesorios.html">Accesorios</a></li>
+                    <li><a href="autos.html">Autos</a></li>
                     <li><a href="contacto.html">Contacto</a></li>
                     <li><a href="citas.html">Citas</a></li>
                     <li><a href="login.html">Iniciar Sesión</a></li>
@@ -32,7 +35,8 @@
                 </div>
             </div>
         </header>
-
+        
+        <!-- EJEMPLO DE COMO ESPERA QUE SEA VEA EL CATALOGO -->
         <section>
             <div class="catalogo" id="catalogo">
                 <h1>CATÁLOGO DE AUTOS</h1>
@@ -42,105 +46,102 @@
                 <img src="imagenes/x5.jpg" alt=""/><br>
                 <p>Cambios: Automático</p><br>
                 <p>Precio: $95.000</p>
-                <p>------------------------------------------------------------------------</p>
+                <p>-----------------------------------------------------------------------</p>
                 <h2>Mercedes Benz GLC 2022</h2>
                 <img src="imagenes/GLC.jpg" alt=""/><br>
                 <p>Cambios: Automático</p><br>
                 <p>Precio: $125.000</p><br>
-                <p>------------------------------------------------------------------------</p>
+                <p>-----------------------------------------------------------------------</p>
                 <h2>Porsche Cayenne 2017</h2>
                 <img src="imagenes/cayenne.jpg" alt=""/><br>
                 <p>Cambios: Manual</p><br>
                 <p>Precio: $60.000</p><br>
-                <p>------------------------------------------------------------------------</p>
+                <p>-----------------------------------------------------------------------</p>
                 <h2>Can-Am Maverick 2020</h2>
                 <img src="imagenes/can-am.jpg" alt=""/><br>
                 <p>Cambios: Automático - 4x4</p><br>
                 <p>Precio: $30.000</p><br>
-                <p>------------------------------------------------------------------------</p>
+                <p>-----------------------------------------------------------------------</p>
                 <h2>Twingo 2022</h2>
                 <img src="imagenes/twingo.jpg" alt=""/><br>
                 <p>Cambios: Automático</p><br>
                 <p>Precio: $40.000</p><br>
-                <p>------------------------------------------------------------------------</p>
+                <p>-----------------------------------------------------------------------</p>
             </div>
         </section>
-
- <!-- Botón para agregar auto (ventana emergente) -->
-    <section class="cita">
-        <div class="py-4 mb-4 bg-light">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">   
-                        <button 
-                            type="button" 
-                            class="btn btn-primary btn-block" 
-                            onclick="mostrarFormulario()">
-                            <i class="fas fa-plus"></i> Agregar Auto
-                        </button>
+        
+        <section class="cita">
+                <div class="py-4 mb-4 bg-light">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">   
+                                <button 
+                                    type="button" 
+                                    class="btn btn-primary btn-block" 
+                                    onclick="mostrarFormulario()">
+                                    <i class="fas fa-plus"></i> Agregar Auto
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <!-- Ventana emergente con el formulario para agregar auto (inicialmente oculta) -->
-        <div id="ventanaEmergente" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 165, 0, 0.5); z-index: 9999;">
-    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; padding: 20px; border-radius: 10px;">
-                <h3>Agregar Auto</h3>
-                <form action="/auto/guardar" method="POST" class="was-validated" enctype="multipart/form-data">
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label for="descripcion">Modelo</label>
-                            <input type="text" class="form-control" name="modelo" required="true"/>
+                <!-- Ventana emergente con el formulario para agregar auto (inicialmente oculta) -->
+                <div id="ventanaEmergente" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 165, 0, 0.5); z-index: 9999;">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; padding: 20px; border-radius: 10px;">
+                        <h3>Agregar Auto</h3>
+                        <form action="/auto/guardar" method="POST" class="was-validated" enctype="multipart/form-data">
+                            <div class="modal-body">
+                            <div class="mb-3">
+                                <label for="descripcion">Modelo</label>
+                                <input type="text" class="form-control" name="modelo" required="true"/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="descripcion">Marca</label>
+                                <input type="text" class="form-control" name="marca" required="true"/>
+                            </div>
+                            <br>
+                            <div class="mb-3">
+                                <label for="descripcion">Precio</label>
+                                <input type="text" class="form-control" name="precio" required="true"/>
+                            </div>
+                            <br>
+                            <div class="mb-3">
+                                <label for="activo">Activo</label>
+                                <input class="form-check-input" type="checkbox" name="activo" id="activo"/>
+                            </div>
+                            <div class="mb-3">
+                                <label for="imagen">Imagen</label>
+                                <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);"/>
+                                <img id="blah" src="#" alt="Tu imagen" height="200"/>
+                            </div>
+                            <br>
                         </div>
-                        <br>
-                        <div class="mb-3">
-                            <label for="descripcion">Marca</label>
-                            <input type="text" class="form-control" name="marca" required="true"/>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" type="submit">Guardar</button>
+                            <button class="btn btn-secondary" type="button" onclick="cerrarVentanaEmergente()">Cancelar</button>
                         </div>
-                        <br>
-                        <div class="mb-3">
-                            <label for="descripcion">Precio</label>
-                            <input type="text" class="form-control" name="precio" required="true"/>
-                        </div>
-                        <br>
-                        <div class="mb-3">
-                            <label for="activo">Activo</label>
-                            <input class="form-check-input" type="checkbox" name="activo" id="activo"/>
-                        </div>
-                        <br>
-                        <div class="mb-3">
-                            <label for="imagen">Imagen</label>
-                            <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);"/>
-                            <img id="blah" src="#" alt="Tu imagen" height="200"/>
-                        </div>
-                        <br>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary" type="submit">Guardar</button>
-                        <button class="btn btn-secondary" type="button" onclick="cerrarVentanaEmergente()">Cancelar</button>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+                
+        <script>
+            function toggleSearchBox() {
+                var searchBox = document.querySelector('.search-box');
+                searchBox.classList.toggle('activo');
+            }
 
-           <script>
-        function toggleSearchBox() {
-            var searchBox = document.querySelector('.search-box');
-            searchBox.classList.toggle('activo');
-        }
-        
-        function mostrarFormulario() {
-            var ventanaEmergente = document.getElementById("ventanaEmergente");
-            ventanaEmergente.style.display = "block";
-        }
-        
-        function cerrarVentanaEmergente() {
-            var ventanaEmergente = document.getElementById("ventanaEmergente");
-            ventanaEmergente.style.display = "none";
-        }
-    </script>
+            function mostrarFormulario() {
+                var ventanaEmergente = document.getElementById("ventanaEmergente");
+                ventanaEmergente.style.display = "block";
+            }
+
+            function cerrarVentanaEmergente() {
+                var ventanaEmergente = document.getElementById("ventanaEmergente");
+                ventanaEmergente.style.display = "none";
+            }
+        </script>
 
         <br>
         <footer class="footer">CarShop &COPY; 2023 - Grupo 10</footer>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>CarShop</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Modificar Accesorio</h1>
+        <form th:object="${accesorio}" th:action="@{/accesorio/guardar}" method="post" enctype="multipart/form-data">
+            <input type="hidden" th:field="*{idAccesorio}">
+            <p>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" th:field="*{nombre}">
+            </p>
+            <p>
+                <label for="imagen">Imagen:</label>
+                <input type="file" id="imagen" name="imagenFile">
+            </p>
+            <p>
+                <label for="precio">Precio:</label>
+                <input type="number" id="precio" th:field="*{precio}">
+            </p>
+            <p>
+                <label for="activo">Activo:</label>
+                <input type="checkbox" id="activo" th:field="*{activo}">
+            </p>
+            <p>
+                <button type="submit">Guardar</button>
+                <a href="/accesorio/listado">Cancelar</a>
+            </p>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>CarShop</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="catalogo" id="catalogo">
+            <h1>Modificar Auto</h1>
+            <form th:object="${auto}" th:action="@{/auto/guardar}" method="post" enctype="multipart/form-data">
+                <input type="hidden" th:field="*{idAuto}">
+                <p>
+                    <label for="marca">Marca:</label>
+                    <input type="text" id="marca" th:field="*{marca}">
+                </p>
+                <p>
+                    <label for="modelo">Modelo:</label>
+                    <input type="text" id="modelo" th:field="*{modelo}">
+                </p>
+                <p>
+                    <label for="imagen">Imagen:</label>
+                    <input type="file" id="imagen" name="imagenFile">
+                </p>
+                <p>
+                    <label for="precio">Precio:</label>
+                    <input type="number" id="precio" th:field="*{precio}">
+                </p>
+                <p>
+                    <label for="activo">Activo:</label>
+                    <input type="checkbox" id="activo" th:field="*{activo}">
+                </p>
+                <p>
+                    <button type="submit">Guardar</button>
+                    <a href="/auto/listado">Cancelar</a>
+                </p>
+            </form>
+        </div>
+    </body>
+</html>

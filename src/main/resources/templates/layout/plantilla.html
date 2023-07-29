@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:fragment="head">
+        <title>CarShop</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="../../static/css/estilos.css" type="text/css"/>
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}"rel="stylesheet"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+    </head>
+    <body>
+        <header th:fragment="header">
+            <div class="nav container">
+                <i class='bx bx-menu-alt-right' id="menu-icon"></i>
+                <a href="index.html" class="logo">Car <span>Shop</span></a>
+
+                <ul class="navbar">
+                    <li><a href="index.html" class="activo">Inicio</a></li>
+                    <li><a href="autos.html">Autos</a></li>
+                    <li><a href="accesorios.html">Accesorios</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                    <li><a href="citas.html">Citas</a></li>
+                    <li><a href="login.html">Iniciar Sesion</a></li>
+                </ul>
+
+                <i class='bx bx-search-alt-2' id="buscar-icon" onclick="toggleSearchBox()"></i>
+
+                <div class="search-box container">
+                    <input type="Buscar" name="" id="" placeholder="Buscar autos">
+                </div>
+            </div>
+       
+            <script>
+            function toggleSearchBox() {
+                var searchBox = document.querySelector('.search-box');
+                searchBox.classList.toggle('activo');
+            }
+            </script>
+            
+        </header>
+
+        <footer th:fragment="footer" class="footer">CarShop &COPY; 2023 - Grupo 10</footer>
+    </body>
+</html>

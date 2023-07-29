@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>CarShop</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+        <link href="static/css/estilos.css" rel="stylesheet" type="text/css"/>
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <section>
+            <div class="catalogo">
+                <h1>Listado de Autos</h1>
+                <p>Total de autos: <span th:text="${totalAutos}"></span></p>
+
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>MARCA</th>
+                        <th>MODELO</th>
+                        <th>IMAGEN</th>
+                        <th>PRECIO</th>
+                        <th>ACTIVO</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                    <tr th:each="auto : ${autos}">
+                        <td th:text="${auto.idAuto}"></td>
+                        <td th:text="${auto.marca}"></td>
+                        <td th:text="${auto.modelo}"></td>
+                        <td><img th:src="${auto.imagen}" alt="Imagen del Auto" width="100"></td>
+                        <td th:text="${auto.precio}"></td>
+                        <td th:text="${auto.activo} ? 'Sí' : 'No'"></td>
+                        <td>
+                            <a th:href="@{/auto/modificar/{idAuto}(idAuto=${auto.idAuto})}">Modificar</a>
+                            <a th:href="@{/auto/eliminar/{idAuto}(idAuto=${auto.idAuto})}">Eliminar</a>
+                        </td>
+                    </tr>
+                </table>
+
+                <a href="/auto/nuevo">Agregar Nuevo Auto</a>
+                <div>
+                    <a href="/index.html">Volver al Inicio</a><br>
+                    <a href="/autos.html">Volver a Autos</a>
+                </div>
+            </div>   
+    </body>
+</html>
