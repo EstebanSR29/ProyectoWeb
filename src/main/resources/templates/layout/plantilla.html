@@ -31,6 +31,8 @@
                     <li><a href="contacto.html">Contacto</a></li>
                     <li><a href="citas.html">Citas</a></li>
                     <li><a href="login.html">Iniciar Sesion</a></li>
+                    <li><a th:href="@{/(lang=es)}">ES</a></li>
+                    <li><a th:href="@{/(lang=en)}">EN</a></li>                          
                 </ul>
 
                 <i class='bx bx-search-alt-2' id="buscar-icon" onclick="toggleSearchBox()"></i>
@@ -46,7 +48,7 @@
                 searchBox.classList.toggle('activo');
             }
             </script>
-            
+                       
         </header>
 
         <footer th:fragment="footer" class="footer">CarShop &COPY; 2023 - Grupo 10</footer>
