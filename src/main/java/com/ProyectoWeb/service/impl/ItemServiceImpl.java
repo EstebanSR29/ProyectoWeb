@@ -2,10 +2,9 @@ package com.ProyectoWeb.service.impl;
 
 import com.ProyectoWeb.dao.AccesorioDao;
 import com.ProyectoWeb.dao.CarritoDao;
-import com.ProyectoWeb.dao.FacturaDao;
 import com.ProyectoWeb.domain.Accesorio;
 import com.ProyectoWeb.domain.Carrito;
-import com.ProyectoWeb.domain.Factura;
+import com.ProyectoWeb.domain.Factura2;
 import com.ProyectoWeb.domain.Item;
 import com.ProyectoWeb.domain.Usuario;
 import com.ProyectoWeb.service.ItemService;
@@ -16,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+import com.ProyectoWeb.dao.Factura2Dao;
 
 @Service
 public class ItemServiceImpl implements ItemService {
@@ -83,7 +83,7 @@ public class ItemServiceImpl implements ItemService {
     private UsuarioService usuarioService;
 
     @Autowired
-    private FacturaDao facturaDao;
+    private Factura2Dao facturaDao;
     @Autowired
     private CarritoDao carritoDao;
     @Autowired
@@ -112,22 +112,22 @@ public class ItemServiceImpl implements ItemService {
             return;
         }
 
-        Factura factura = new Factura();
-        factura = facturaDao.save(factura);
+        Factura2 factura2 = new Factura2();
+        factura2 = facturaDao.save(factura2);
 
         double total = 0;
         for (Item i : listaItems) {
             System.out.println("Accesorio: " + i.getNombre()
                     + " Cantidad: " + i.getCantidad()
                     + " Total: " + i.getPrecio() * i.getCantidad());
-            Carrito carrito = new Carrito(factura.getIdFactura(), i.getIdAccesorio(), i.getPrecio(), i.getCantidad());
+            Carrito carrito = new Carrito(factura2.getIdFactura(), i.getIdAccesorio(), i.getPrecio(), i.getCantidad());
             carritoDao.save(carrito);
             Accesorio accesorio = accesorioDao.getReferenceById(i.getIdAccesorio());
             accesorioDao.save(accesorio);
             total += i.getPrecio() * i.getCantidad();
         }
-        factura.setTotal(total);
-        facturaDao.save(factura);
+        factura2.setTotal(total);
+        facturaDao.save(factura2);
         listaItems.clear();
     }
 }

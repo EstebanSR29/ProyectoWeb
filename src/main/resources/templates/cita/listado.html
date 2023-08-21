@@ -5,9 +5,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-        <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+        <link href="static/css/estilos.css" rel="stylesheet" type="text/css"/>
         <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-        <style>
+            <style>
             body {
                 font-family: 'Arial', sans-serif;
                 background-color: #FFA500;
@@ -97,40 +97,40 @@
         </style>
     </head>
     <body>
-        <div class="catalogo">
-            <h1>Listado de Accesorios</h1>
-            <p>Total de accesorios: <span th:text="${totalAccesorios}"></span></p>
+    <h1>Listado de Citas</h1>
+    <p>Total de citas: <span th:text="${totalCitas}"></span></p>
 
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Imagen</th>
-                    <th>Precio</th>
-                    <th>Activo</th>
-                    <th>Acciones</th>
-                </tr>
-                <tr th:each="accesorio : ${accesorios}">
-                    <td th:text="${accesorio.idAccesorio}"></td>
-                    <td th:text="${accesorio.nombre}"></td>
-                    <td><img th:src="${accesorio.imagen}" alt="Imagen del Accesorio" width="100"></td>
-                    <td th:text="${accesorio.precio}"></td>
-                    <td th:text="${accesorio.activo} ? 'Sí' : 'No'"></td>
-                    <td>
-                        <a th:href="@{/accesorio/modificar/{idAccesorio}(idAccesorio=${accesorio.idAccesorio})}">Modificar</a>
-                        <a th:href="@{/accesorio/eliminar/{idAccesorio}(idAccesorio=${accesorio.idAccesorio})}">Eliminar</a>
-                    </td>
-                </tr>
-            </table>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>CORREO</th>
+            <th>TELÉFONO</th>
+            <th>FECHA</th>
+            <th>COMENTARIOS</th>
+            <th>ACTIVO</th>
+            <th>ACCIONES</th>
+        </tr>
+        <tr th:each="cita : ${citas}">
+            <td th:text="${cita.idCita}"></td>
+            <td th:text="${cita.nombre}"></td>
+            <td th:text="${cita.correo}"></td>
+            <td th:text="${cita.telefono}"></td>
+            <td th:text="${cita.fecha}"></td>
+            <td th:text="${cita.comentarios}"></td>
+            <td th:text="${cita.activo} ? 'Sí' : 'No'"></td>
+            <td>
+                <a th:href="@{/cita/modificar/{idCita}(idCita=${cita.idCita})}">Modificar</a>
+                <a th:href="@{/cita/eliminar/{idCita}(idCita=${cita.idCita})}">Eliminar</a>
+            </td>
+        </tr>
+    </table>
 
-            <a href="/accesorio/nuevo">Agregar Nuevo Accesorio</a>
-            <a href="/venta/listado">Ver Carrito</a>
-        </div>
-        <div>
-            <a href="/index.html">Volver al Inicio</a><br>
-            <a href="/accesorios.html">Volver a Accesorios</a>
-        </div>
+    <a href="/cita/nuevo">Agregar Nueva Cita</a>
+    <div>
+        <a href="/index.html">Volver al Inicio</a><br>
+        <a href="/citas.html">Volver a Citas</a>
+    </div>
+    </div>
     </body>
-    <footer class="footer">CarShop &COPY; 2023 - Grupo 10</footer>
-
 </html>

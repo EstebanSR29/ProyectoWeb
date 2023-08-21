@@ -18,9 +18,9 @@
             <li><a href="autos.html">Autos</a></li>
             <li><a href="accesorios.html">Accesorios</a></li>
             <li><a href="contacto.html">Contacto</a></li>
-            <li><a href="citas.html" class="activo">Citas</a></li>
+            <li><a href="citas.html">Citas</a></li>
             <li><a href="login.html">Iniciar</a></li>
-            <li><a href="comentario.html">Reseñas</a></li>
+            <li><a href="comentario.html" class="activo">Reseñas</a></li>
         </ul>
         <i class='bx bx-search-alt-2' id="buscar-icon" onclick="toggleSearchBox()"></i>
         <div class="search-box container">
@@ -37,7 +37,7 @@
                                     type="button" 
                                     class="btn btn-primary btn-block" 
                                     onclick="mostrarFormulario()">
-                                    <i class="fas fa-plus"></i> AGENDAR CITA
+                                    <i class="fas fa-plus"></i> DEJAR UNA RESEÑA
                                 </button>
                             </div>
                         </div>
@@ -48,7 +48,7 @@
 </div>
         <script>
             function mostrarFormulario() {
-                window.location.href = "cita/listado";
+                window.location.href = "comentario/listado";
             }
         </script>  
 <footer class="footer">CarShop &COPY; 2023 - Grupo 10</footer>

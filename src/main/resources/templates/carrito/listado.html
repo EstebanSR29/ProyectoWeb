@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ver Carrito</title>
+</head>
+<body>
+    <h1>Carrito de Compras</h1>
+    
+    <table>
+        <tr>
+            <th>Accesorio</th>
+            <th>Cantidad</th>
+            <th>Precio Unitario</th>
+            <th>Total</th>
+            <th>Acciones</th>
+        </tr>
+        
+        <tr th:each="item : ${listaItems}">
+            <td th:text="${item.accesorio.nombre}"></td>
+            <td th:text="${item.cantidad}"></td>
+            <td th:text="${item.precio}"></td>
+            <td th:text="${item.cantidad * item.precio}"></td>
+            <td>
+                <a th:href="@{/carrito/modificar/{idAccesorio}(idAccesorio=${item.accesorio.id})}">Modificar</a>
+                <a th:href="@{/carrito/eliminar/{idAccesorio}(idAccesorio=${item.accesorio.id})}">Eliminar</a>
+            </td>
+        </tr>
+    </table>
+    
+    <p>Total de Carrito: <span th:text="${carritoTotal}"></span></p>
+    <p>Total de Items en Carrito: <span th:text="${listaTotal}"></span></p>
+    
+    <a href="/">Volver a la Tienda</a>
+    
+    <form th:action="@{/facturar/carrito}" method="post">
+    <button type="submit">Facturar</button>
+    </form>
+    
+</body>
+</html>

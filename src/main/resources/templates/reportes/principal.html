@@ -97,40 +97,43 @@
         </style>
     </head>
     <body>
-        <div class="catalogo">
-            <h1>Listado de Accesorios</h1>
-            <p>Total de accesorios: <span th:text="${totalAccesorios}"></span></p>
 
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Imagen</th>
-                    <th>Precio</th>
-                    <th>Activo</th>
-                    <th>Acciones</th>
-                </tr>
-                <tr th:each="accesorio : ${accesorios}">
-                    <td th:text="${accesorio.idAccesorio}"></td>
-                    <td th:text="${accesorio.nombre}"></td>
-                    <td><img th:src="${accesorio.imagen}" alt="Imagen del Accesorio" width="100"></td>
-                    <td th:text="${accesorio.precio}"></td>
-                    <td th:text="${accesorio.activo} ? 'Sí' : 'No'"></td>
-                    <td>
-                        <a th:href="@{/accesorio/modificar/{idAccesorio}(idAccesorio=${accesorio.idAccesorio})}">Modificar</a>
-                        <a th:href="@{/accesorio/eliminar/{idAccesorio}(idAccesorio=${accesorio.idAccesorio})}">Eliminar</a>
-                    </td>
-                </tr>
-            </table>
+        <div>
+            <div class="card-body">
+                <div>
+                    <h4>Facturar</h4>
+                </div>
+                <div class="card-body">
+                    <form method="GET"
+                          th:action="@{/reportes/factura}" 
+                          class="was-validated">
+                        <div class="mb-3">
+                            <label for="facturaParam">Digite el nombre del cliente:</label>
+                            <input type="text" class="form-control" name="facturaParam" th:value="${facturaParam}" required="false" />
+                        </div>
 
-            <a href="/accesorio/nuevo">Agregar Nuevo Accesorio</a>
-            <a href="/venta/listado">Ver Carrito</a>
+                        <button name="tipo" value="vPdf" type="submit">
+                            Ver PDF
+                        </button>
+
+                        <button name="tipo" value="Pdf" type="submit">
+                            Descargar PDF
+                        </button>
+
+                        <button name="tipo" value="Xls" type="submit">
+                            Descargar Excel
+                        </button>
+
+                        <button name="tipo" value="Xls" type="submit">
+                            Descargar CSV
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
         <div>
-            <a href="/index.html">Volver al Inicio</a><br>
-            <a href="/accesorios.html">Volver a Accesorios</a>
+            <a href="/index.html">Volver al Inicio</a>
         </div>
     </body>
     <footer class="footer">CarShop &COPY; 2023 - Grupo 10</footer>
-
-</html>
+</html> 

@@ -97,40 +97,30 @@
         </style>
     </head>
     <body>
-        <div class="catalogo">
-            <h1>Listado de Accesorios</h1>
-            <p>Total de accesorios: <span th:text="${totalAccesorios}"></span></p>
-
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Imagen</th>
-                    <th>Precio</th>
-                    <th>Activo</th>
-                    <th>Acciones</th>
-                </tr>
-                <tr th:each="accesorio : ${accesorios}">
-                    <td th:text="${accesorio.idAccesorio}"></td>
-                    <td th:text="${accesorio.nombre}"></td>
-                    <td><img th:src="${accesorio.imagen}" alt="Imagen del Accesorio" width="100"></td>
-                    <td th:text="${accesorio.precio}"></td>
-                    <td th:text="${accesorio.activo} ? 'Sí' : 'No'"></td>
-                    <td>
-                        <a th:href="@{/accesorio/modificar/{idAccesorio}(idAccesorio=${accesorio.idAccesorio})}">Modificar</a>
-                        <a th:href="@{/accesorio/eliminar/{idAccesorio}(idAccesorio=${accesorio.idAccesorio})}">Eliminar</a>
-                    </td>
-                </tr>
-            </table>
-
-            <a href="/accesorio/nuevo">Agregar Nuevo Accesorio</a>
-            <a href="/venta/listado">Ver Carrito</a>
-        </div>
-        <div>
-            <a href="/index.html">Volver al Inicio</a><br>
-            <a href="/accesorios.html">Volver a Accesorios</a>
+            <h1>Modificar Comentario</h1>
+            <form th:object="${comentario}" th:action="@{/comentario/guardar}" method="post" enctype="multipart/form-data">
+                <input type="hidden" th:field="*{idComentario}">
+                <p>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" th:field="*{nombre}">
+                </p>
+                <p>
+                    <label for="comentario">Comentario:</label>
+                    <input type="text" id="comentario" th:field="*{resena}">
+                </p>
+                <p>
+                    <label for="puntuacion">Puntuacion(0-5):</label>
+                    <input type="number" id="puntuacion" th:field="*{puntuacion}">
+                </p>
+                <p>
+                    <label for="activo">Activo:</label>
+                    <input type="checkbox" id="activo" th:field="*{activo}">
+                </p>
+                <p>
+                    <button type="submit">Guardar</button>
+                    <a href="/comentario/listado">Cancelar</a>
+                </p>
+            </form>
         </div>
     </body>
-    <footer class="footer">CarShop &COPY; 2023 - Grupo 10</footer>
-
 </html>

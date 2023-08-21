@@ -98,39 +98,41 @@
     </head>
     <body>
         <div class="catalogo">
-            <h1>Listado de Accesorios</h1>
-            <p>Total de accesorios: <span th:text="${totalAccesorios}"></span></p>
+        <h1>Listado de Ventas</h1>
+        <p>Total de ventas: <span th:text="${totalVentas}"></span></p>
 
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Imagen</th>
-                    <th>Precio</th>
-                    <th>Activo</th>
-                    <th>Acciones</th>
-                </tr>
-                <tr th:each="accesorio : ${accesorios}">
-                    <td th:text="${accesorio.idAccesorio}"></td>
-                    <td th:text="${accesorio.nombre}"></td>
-                    <td><img th:src="${accesorio.imagen}" alt="Imagen del Accesorio" width="100"></td>
-                    <td th:text="${accesorio.precio}"></td>
-                    <td th:text="${accesorio.activo} ? 'Sí' : 'No'"></td>
-                    <td>
-                        <a th:href="@{/accesorio/modificar/{idAccesorio}(idAccesorio=${accesorio.idAccesorio})}">Modificar</a>
-                        <a th:href="@{/accesorio/eliminar/{idAccesorio}(idAccesorio=${accesorio.idAccesorio})}">Eliminar</a>
-                    </td>
-                </tr>
-            </table>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Accesorio</th>       
+                <th>Cantidad</th>
+                <th>Precio</th>
+                <th>Total</th>
+                <th>Activo</th>
+                <th>Acciones</th>
+            </tr>
+            <tr th:each="venta : ${ventas}">
+                <td th:text="${venta.idVenta}"></td>
+                <td th:text="${venta.nombre}"></td>
+                <td th:text="${venta.accesorio}"></td>
+                <td th:text="${venta.cantidad}"></td>
+                <td th:text="${venta.precio}"></td>
+                <td th:text="${venta.total}"></td>
+                <td th:text="${venta.activo}"></td>
+                <td>
+                    <a th:href="@{/venta/modificar/{idVenta}(idVenta=${venta.idVenta})}">Modificar</a>
+                    <a th:href="@{/venta/eliminar/{idVenta}(idVenta=${venta.idVenta})}">Eliminar</a>
+                </td>
+            </tr>
+        </table>
 
-            <a href="/accesorio/nuevo">Agregar Nuevo Accesorio</a>
-            <a href="/venta/listado">Ver Carrito</a>
-        </div>
-        <div>
-            <a href="/index.html">Volver al Inicio</a><br>
-            <a href="/accesorios.html">Volver a Accesorios</a>
-        </div>
-    </body>
-    <footer class="footer">CarShop &COPY; 2023 - Grupo 10</footer>
-
-</html>
+        <a href="/venta/nuevo">Agregar Nueva Venta</a>
+        <a href="/factura/listado">Factura Electronica</a>
+    </div>
+    <div>
+        <a href="/index.html">Volver al Inicio</a>
+    </div>
+</body>
+<footer class="footer">CarShop &COPY; 2023 - Grupo 10</footer>
+</html> 

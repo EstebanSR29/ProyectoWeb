@@ -98,39 +98,43 @@
     </head>
     <body>
         <div class="catalogo">
-            <h1>Listado de Accesorios</h1>
-            <p>Total de accesorios: <span th:text="${totalAccesorios}"></span></p>
+        <h1>Listado de Facturas</h1>
+        <p>Total de facturas: <span th:text="${totalFacturas}"></span></p>
 
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Imagen</th>
-                    <th>Precio</th>
-                    <th>Activo</th>
-                    <th>Acciones</th>
-                </tr>
-                <tr th:each="accesorio : ${accesorios}">
-                    <td th:text="${accesorio.idAccesorio}"></td>
-                    <td th:text="${accesorio.nombre}"></td>
-                    <td><img th:src="${accesorio.imagen}" alt="Imagen del Accesorio" width="100"></td>
-                    <td th:text="${accesorio.precio}"></td>
-                    <td th:text="${accesorio.activo} ? 'Sí' : 'No'"></td>
-                    <td>
-                        <a th:href="@{/accesorio/modificar/{idAccesorio}(idAccesorio=${accesorio.idAccesorio})}">Modificar</a>
-                        <a th:href="@{/accesorio/eliminar/{idAccesorio}(idAccesorio=${accesorio.idAccesorio})}">Eliminar</a>
-                    </td>
-                </tr>
-            </table>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Correo</th>       
+                <th>Direccion</th>
+                <th>Cedula</th>
+                <th>Telefono</th>
+                <th>Monto</th>
+                <th>Activo</th>
+                <th>Acciones</th>
+            </tr>
+            <tr th:each="factura : ${facturas}">
+                <td th:text="${factura.idFactura}"></td>
+                <td th:text="${factura.nombre}"></td>
+                <td th:text="${factura.correo}"></td>
+                <td th:text="${factura.direccion}"></td>
+                <td th:text="${factura.cedula}"></td>
+                <td th:text="${factura.telefono}"></td>
+                <td th:text="${factura.monto}"></td>
+                <td th:text="${factura.activo}"></td>
+                <td>
+                    <a th:href="@{/factura/modificar/{idFactura}(idFactura=${factura.idFactura})}">Modificar</a>
+                    <a th:href="@{/factura/eliminar/{idFactura}(idFactura=${factura.idFactura})}">Eliminar</a>
+                </td>
+            </tr>
+        </table>
 
-            <a href="/accesorio/nuevo">Agregar Nuevo Accesorio</a>
-            <a href="/venta/listado">Ver Carrito</a>
-        </div>
-        <div>
-            <a href="/index.html">Volver al Inicio</a><br>
-            <a href="/accesorios.html">Volver a Accesorios</a>
-        </div>
-    </body>
-    <footer class="footer">CarShop &COPY; 2023 - Grupo 10</footer>
-
-</html>
+        <a href="/factura/nuevo">Agregar Factura</a>
+        <a href="/reportes/principal">Generar Factura</a>
+    </div>
+    <div>
+        <a href="/index.html">Volver al Inicio</a>
+    </div>
+</body>
+<footer class="footer">CarShop &COPY; 2023 - Grupo 10</footer>
+</html> 

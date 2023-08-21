@@ -12,34 +12,32 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name="factura")
-public class Factura implements Serializable {
+@Table(name="cita")
+public class Cita implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_factura")
-    private Long idFactura;
+    @Column(name="id_cita")
+    private Long idCita;
     private String nombre;
     private String correo;
-    private String direccion;
-    private int cedula;
+    private String fecha;
     private int telefono;
-    private int monto;
+    private String comentarios;
     private boolean activo;
-
-    public Factura() {
+    
+    public Cita() {
     }
 
-    public Factura(Long idFactura, String nombre, String correo, String direccion, int cedula, int telefono, int monto, boolean activo) {
-        this.idFactura = idFactura;
+    public Cita(Long idCita, String nombre, String correo, String fecha, int telefono, String comentarios, boolean activo) {
+        this.idCita = idCita;
         this.nombre = nombre;
         this.correo = correo;
-        this.direccion = direccion;
-        this.cedula = cedula;
+        this.fecha = fecha;
         this.telefono = telefono;
-        this.monto = monto;
+        this.comentarios = comentarios;
         this.activo = activo;
     }
     
